@@ -44,6 +44,12 @@ public class Projectile : MonoBehaviour
 
             Destroy(gameObject);
         }
+        else if (collision.gameObject.tag == "Wall")
+        {
+            // Instantiate(impactEffect, transform.position, Quaternion.identity);
+
+            Destroy(gameObject);
+        }
     }
 
     //This adds a force to the projectile in order to move towards the target position

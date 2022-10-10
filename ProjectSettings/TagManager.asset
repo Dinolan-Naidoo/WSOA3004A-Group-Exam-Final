@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Coin
   - Obstacle
+  - Wall
   layers:
   - Default
   - TransparentFX
