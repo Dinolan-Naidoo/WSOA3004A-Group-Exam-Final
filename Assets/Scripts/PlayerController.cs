@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rB; //Reference to rigidbody
     private float currentdistance; //Current distance of mouse drag
     private float safeSpace; // Exists within current distance and max distance
-    private float shootpower; // The power that the player can be propelled 
+    public float shootpower; // The power that the player can be propelled 
     private Vector3 shootDirection; // The direction vector that the player is being moved to 
     public float maxdistance = 2f; // Max distance of mouse drag
 
@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
     //The following function checks for a collision with an enemy or enemy bullet and destroys the player
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag =="Bullet" || collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag =="Bullet" || collision.gameObject.tag == "Enemy"||collision.gameObject.tag == "Obstacle")
         {
             Destroy(gameObject);
             SceneManager.LoadScene("GameOver");
