@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private GameObject mousePointA; //Reference to distance point A
     private GameObject mousePointB; //Reference to distance point B
     private CircleCollider2D playerColliders; // Reference to colliders
-    private Rigidbody2D rB; //Reference to rigidbody
+    private Rigidbody2D rB; //Reference to rigidbody 2d  
     private float currentdistance; //Current distance of mouse drag
     private float safeSpace; // Exists within current distance and max distance
     public float shootpower; // The power that the player can be propelled 
@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private float count = 5f;
     public Slider timerSlider;
     private float coinCount = 0;
+    public Camera cam;
 
     private void Awake()
     {
@@ -44,9 +45,9 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetMouseButton(0))
         {
-
+            rB.constraints = RigidbodyConstraints2D.FreezeRotation;
             //The following handles the count down of the timer slider and makes the game move in slow motion
-               if(timerSlider.value > 0)
+            if (timerSlider.value > 0)
                {
                 mousePointB.SetActive(true);
                 Time.timeScale = 0.1f;
@@ -118,6 +119,25 @@ public class PlayerController : MonoBehaviour
                 Debug.Log(coinCount);
             }
          }
+        if (collision.gameObject.tag == "Trigger1")
+        {
+            rB.constraints = RigidbodyConstraints2D.FreezeAll;
+
+            cam.orthographicSize = 20;
+            
+
+        }
+        if (collision.gameObject.tag == "Trigger2")
+        {
+            //rB.constraints = RigidbodyConstraints2D.FreezeAll;
+
+            cam.orthographicSize = 19;
+
+            transform.Rotate(0, 0, -90);
+
+
+        }
+
     }
 
     //The following function checks for a collision with an enemy or enemy bullet and destroys the player

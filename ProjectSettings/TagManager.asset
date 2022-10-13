@@ -13,6 +13,8 @@ TagManager:
   - Coin
   - Obstacle
   - Wall
+  - Trigger1
+  - Trigger2
   layers:
   - Default
   - TransparentFX
