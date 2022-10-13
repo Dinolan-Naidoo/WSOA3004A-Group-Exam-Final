@@ -52,6 +52,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BG
+    uniqueID: 2467708391
+    locked: 0
   - name: Arrow
     uniqueID: 1249403035
     locked: 0
