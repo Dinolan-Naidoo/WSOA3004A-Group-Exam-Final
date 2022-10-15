@@ -145,8 +145,9 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.tag =="Bullet" || collision.gameObject.tag == "Enemy"||collision.gameObject.tag == "Obstacle")
         {
-            Destroy(gameObject);
+            
             SceneManager.LoadScene("GameOver");
+            //Destroy(gameObject);
         }
   
     }

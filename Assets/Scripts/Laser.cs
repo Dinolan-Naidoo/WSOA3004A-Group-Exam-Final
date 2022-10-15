@@ -10,6 +10,7 @@ public class Laser : MonoBehaviour
     public LineRenderer lineRenderer;
 
     Transform transform;
+    public GameObject player;
 
     private void Awake()
     {
@@ -27,6 +28,11 @@ public class Laser : MonoBehaviour
         {
             RaycastHit2D _hit = Physics2D.Raycast(transform.position, transform.right);
             Draw2DRay(firePoint.position, _hit.point);
+
+            if(_hit == player.gameObject)
+            {
+                Debug.Log("Player");
+            }
         }
         else
         {
