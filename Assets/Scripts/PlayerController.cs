@@ -148,6 +148,7 @@ public class PlayerController : MonoBehaviour
             
             SceneManager.LoadScene("GameOver");
             //Destroy(gameObject);
+
         }
   
     }
