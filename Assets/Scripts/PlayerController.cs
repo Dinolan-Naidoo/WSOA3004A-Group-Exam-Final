@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
         {
             rB.constraints = RigidbodyConstraints2D.FreezeAll;
 
-            cam.orthographicSize = 20;
+            cam.orthographicSize = 30;
             
 
         }

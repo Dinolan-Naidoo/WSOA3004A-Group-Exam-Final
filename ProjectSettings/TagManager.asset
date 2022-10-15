@@ -15,6 +15,7 @@ TagManager:
   - Wall
   - Trigger1
   - Trigger2
+  - Laser
   layers:
   - Default
   - TransparentFX
