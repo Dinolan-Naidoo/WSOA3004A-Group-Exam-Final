@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Laser : MonoBehaviour
 {
@@ -28,10 +29,15 @@ public class Laser : MonoBehaviour
         {
             RaycastHit2D _hit = Physics2D.Raycast(transform.position, transform.right);
             Draw2DRay(firePoint.position, _hit.point);
-
-            if(_hit == player.gameObject)
+            if (_hit.collider != null)
             {
-                Debug.Log("Player");
+                
+               // Debug.Log(_hit.collider.name);
+                if(_hit.collider.gameObject.tag == "Player")
+                {
+                    //Destroy(player);
+                    SceneManager.LoadScene("GameOver");
+                }
             }
         }
         else
@@ -45,4 +51,5 @@ public class Laser : MonoBehaviour
         lineRenderer.SetPosition(0, startPos);
         lineRenderer.SetPosition(1, endPos);
     }
+
 }
