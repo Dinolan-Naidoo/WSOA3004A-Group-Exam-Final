@@ -143,13 +143,23 @@ public class PlayerController : MonoBehaviour
     //The following function checks for a collision with an enemy or enemy bullet and destroys the player
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag =="Bullet" || collision.gameObject.tag == "Enemy"||collision.gameObject.tag == "Obstacle" )
+        if(collision.gameObject.tag == "Obstacle" )
         {
             
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("Level1Retry");
             //Destroy(gameObject);
 
         }
-  
+
+        if (collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Enemy")
+        {
+
+            SceneManager.LoadScene("Level1_1Retry");
+            //Destroy(gameObject);
+
+        }
+
+
+
     }
 }

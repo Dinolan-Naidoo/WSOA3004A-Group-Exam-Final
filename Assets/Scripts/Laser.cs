@@ -36,7 +36,7 @@ public class Laser : MonoBehaviour
                 if(_hit.collider.gameObject.tag == "Player")
                 {
                     //Destroy(player);
-                    SceneManager.LoadScene("GameOver");
+                    SceneManager.LoadScene("Level1Retry");
                 }
             }
         }

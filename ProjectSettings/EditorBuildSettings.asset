@@ -26,4 +26,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/start.unity
     guid: eba8a356b42907b4d8f3f54d4a5d3cb8
+  - enabled: 1
+    path: Assets/Scenes/Level1Retry.unity
+    guid: f4aaa06574f82dd4b92fbc32f8b96d82
+  - enabled: 1
+    path: Assets/Scenes/Level1_1Retry.unity
+    guid: c7ac213878e255d4983f008cedba607d
+  - enabled: 1
+    path: Assets/Scenes/L1Interval.unity
+    guid: d92b7fe6d89bfc847b331c1c54391c5f
   m_configObjects: {}

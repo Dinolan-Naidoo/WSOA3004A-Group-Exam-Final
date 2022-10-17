@@ -11,6 +11,15 @@ public class scene_manager : MonoBehaviour
         SceneManager.LoadScene("Level1");
     }
 
+    public void Level1_Death_1()
+    {
+        SceneManager.LoadScene("Level1Retry");
+    }
+
+    public void Level1_Death_2()
+    {
+        SceneManager.LoadScene("Level1_1Retry");
+    }
     public void PlayL2()
     {
         SceneManager.LoadScene("SampleScene");
@@ -31,4 +40,6 @@ public class scene_manager : MonoBehaviour
     {
         SceneManager.LoadScene("Tutorial");
     }
+
+
 }
