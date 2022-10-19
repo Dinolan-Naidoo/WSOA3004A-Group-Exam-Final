@@ -15,4 +15,6 @@ public class Spawn : MonoBehaviour
             Instantiate(zone, new Vector3(cursorPos.x, cursorPos.y, 0), Quaternion.identity);
         }
     }
+
+   
 }

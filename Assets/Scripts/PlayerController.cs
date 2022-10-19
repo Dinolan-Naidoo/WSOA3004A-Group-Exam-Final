@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 
 public class PlayerController : MonoBehaviour
@@ -24,6 +25,9 @@ public class PlayerController : MonoBehaviour
     private float coinCount = 0;
     public Camera cam;
 
+    GamePadControls control;
+    private bool pressed = false;
+
     private void Awake()
     {
         mousePointA = GameObject.FindGameObjectWithTag("PointA");  //Finds point A
@@ -33,11 +37,27 @@ public class PlayerController : MonoBehaviour
         rB = GetComponent<Rigidbody2D>();                          //Gets the player rigidbody
         timerSlider.gameObject.SetActive(false);                   //Disables the timer slider for slow motion time
         timerSlider.value = 1f;                                    //Sets the timer slider to its max value
+
+
+        //Game Pad Controls
+        control = new GamePadControls();
+        control.Gameplay.Spawn.performed += ctx => pressed = true;
+        control.Gameplay.Spawn.canceled += ctx => pressed = false;
     }
+
 
 
     private void Update()
     {
+        if (pressed)
+        {
+            SpawnEnter();
+        }
+        else
+        {
+            SpawnExit();
+        }
+        
         if (coinCount == 3f)
         {
             Debug.Log("WIN");
@@ -106,6 +126,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("QUIT");
         }
 
+        //mousePointB.transform.position = new Vector3(mousePointA.transform.position.x, mousePointA.transform.position.y, -1.5f);
     }
 
     //The following function checks for a collision with a coin and updates the coin score
@@ -161,5 +182,73 @@ public class PlayerController : MonoBehaviour
 
 
 
+    }
+
+    private void SpawnEnter()
+    {
+        //Debug.Log("Pressed X button");
+        rB.constraints = RigidbodyConstraints2D.FreezeRotation;
+        //The following handles the count down of the timer slider and makes the game move in slow motion
+        if (timerSlider.value > 0)
+        {
+            mousePointB.SetActive(true);
+            Time.timeScale = 0.1f;
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
+            currentdistance = Vector3.Distance(mousePointA.transform.position, transform.position);
+            currentdistance = Mathf.Abs(2f);
+            count -= 10 * Time.deltaTime;
+            timerSlider.gameObject.SetActive(true);
+            timerSlider.value -= (3 * Time.deltaTime);
+        }
+        else
+        {
+            Time.timeScale = 1f;      //Game speed resumes to normal
+        }
+
+
+
+        //The following keeps the mouse control movement within a range
+        if (currentdistance <= maxdistance)
+        {
+            safeSpace = currentdistance;
+        }
+
+        else
+        {
+            safeSpace = maxdistance;
+        }
+
+        //Power of player projection 
+        shootpower = Mathf.Abs(safeSpace) * 16f;
+        Vector3 Dxy = mousePointA.transform.position - transform.position;
+        float difference = Dxy.magnitude;
+        mousePointB.transform.position = transform.position + ((Dxy / difference) * currentdistance * -1);
+        mousePointB.transform.position = new Vector3(mousePointB.transform.position.x, mousePointB.transform.position.y, -1.5f);
+
+        //Direction of splayer projection
+        shootDirection = Vector3.Normalize(mousePointA.transform.position - transform.position);
+    }
+
+    private void SpawnExit()
+    {
+        //Debug.Log("Released X button");
+        Time.timeScale = 1;
+        Vector3 push = shootDirection * shootpower * -1f;
+        rB.velocity = push;
+        mousePointB.SetActive(false);
+        //countdownT.gameObject.SetActive(false);
+        count = 5f;
+        timerSlider.value = 1f;
+        timerSlider.gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        control.Gameplay.Enable();
+    }
+
+    private void OnDisable()
+    {
+        control.Gameplay.Disable();
     }
 }
