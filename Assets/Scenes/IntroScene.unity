@@ -412,15 +412,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 14cf7f8b88a88ad4ebefef8bcec44ef1, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -669,10 +669,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInfo:
-  - "You are a Time Agent from Planet Oge, investigating the\r\nintergalactic criminal
-    organisation Tempus Furem. \r"
+  - _ You are a Time Agent from Planet Oge, investigating the intergalactic criminal
+    organisation Tempus Furum
+  - _ Due to your intellegent work, you managed to uncover their base of operations
+  - '_ But before you could expose the Tempus Furem, they captured you and are holding
+    you in one of their prisons - Diagalaxia
+
+'
+  - _ Use your skillful manoeuvring and time manipulation to escape the Diagalaxia
+    and uncover the Tempus Furem !
   textSpeed: 0.02
   itemInfoText: {fileID: 1636558787}
+  nextButton: {fileID: 760408201}
 --- !u!4 &1363652562
 Transform:
   m_ObjectHideFlags: 0
@@ -723,8 +731,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12, y: 208}
-  m_SizeDelta: {x: 1241.7566, y: 176.8126}
+  m_AnchoredPosition: {x: -15.9594, y: 117.1318}
+  m_SizeDelta: {x: 1185.8376, y: 358.5491}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1636558787
 MonoBehaviour:
@@ -773,8 +781,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

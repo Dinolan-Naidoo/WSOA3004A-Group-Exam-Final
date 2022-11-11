@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class textScroll : MonoBehaviour
 {
@@ -11,12 +13,28 @@ public class textScroll : MonoBehaviour
 
     [Header("UI Elements")]
     [SerializeField] private TextMeshProUGUI itemInfoText;
+    [SerializeField] private Button nextButton;
 
     private int currentDisplayText = 0;
+    private bool canGoNext = true;
 
     public void ActivateText()
     {
-        StartCoroutine(AnimateText());
+        if (canGoNext)
+        {
+            if (currentDisplayText < itemInfo.Length)
+            {
+                canGoNext = false;
+                nextButton.interactable = false;
+                StartCoroutine(AnimateText());
+            }
+            else
+            {
+                SceneManager.LoadScene("Level1");
+            }
+        }
+       
+        
     }
     
    IEnumerator AnimateText()
@@ -26,5 +44,9 @@ public class textScroll : MonoBehaviour
             itemInfoText.text = itemInfo[currentDisplayText].Substring(0, i);
             yield return new WaitForSeconds(textSpeed);
         }
+
+        ++currentDisplayText;
+        canGoNext = true;
+        nextButton.interactable = true;
     }
 }
