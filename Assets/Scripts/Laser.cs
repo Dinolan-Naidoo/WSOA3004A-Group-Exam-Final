@@ -12,6 +12,7 @@ public class Laser : MonoBehaviour
 
     Transform transform;
     public GameObject player;
+    public float rotateSpeed;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class Laser : MonoBehaviour
     private void Update()
     {
         ShootLaser();
+        transform.Rotate(0, 0, rotateSpeed);
     }
 
     void ShootLaser()

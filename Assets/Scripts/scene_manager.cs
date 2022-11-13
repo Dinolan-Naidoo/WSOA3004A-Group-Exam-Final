@@ -25,6 +25,10 @@ public class scene_manager : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void PlayLevel2()
+    {
+        SceneManager.LoadScene("Level2");
+    }
     public void quitGame()
     {
         Application.Quit();
