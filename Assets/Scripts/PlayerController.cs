@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private float coinCount = 0;
     public Camera cam;
 
+    private Scene scene;
+
     private void Awake()
     {
         mousePointA = GameObject.FindGameObjectWithTag("PointA");  //Finds point A
@@ -33,6 +35,8 @@ public class PlayerController : MonoBehaviour
         rB = GetComponent<Rigidbody2D>();                          //Gets the player rigidbody
         timerSlider.gameObject.SetActive(false);                   //Disables the timer slider for slow motion time
         timerSlider.value = 1f;                                    //Sets the timer slider to its max value
+
+        scene = SceneManager.GetActiveScene();
     }
 
 
@@ -143,13 +147,29 @@ public class PlayerController : MonoBehaviour
     //The following function checks for a collision with an enemy or enemy bullet and destroys the player
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Obstacle" )
-        {
-            
-            SceneManager.LoadScene("Level1Retry");
-            //Destroy(gameObject);
 
-        }
+    
+            if (collision.gameObject.tag == "Obstacle")
+            {
+
+                if(scene.name =="Level1")
+                {
+                   SceneManager.LoadScene("Level1Retry");
+                }
+
+                if (scene.name == "Level2")
+                {
+                    SceneManager.LoadScene("Level2Retry");
+                }
+
+
+
+
+            }
+       
+
+      
+
 
         if (collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Enemy")
         {
