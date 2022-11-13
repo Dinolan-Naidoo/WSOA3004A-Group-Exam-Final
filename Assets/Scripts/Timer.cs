@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
         countdownText.text = currentTime.ToString("0");
         if(currentTime <= 0)
         {
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("Level1_1Retry");
         }
 
     }
