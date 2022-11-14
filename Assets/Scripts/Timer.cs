@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
 {
     //Variables for timer
     float currentTime = 0f;
-    float startingTime = 3f;
+    float startingTime = 15f;
     public Text countdownText;
 
     public GameObject portal;
