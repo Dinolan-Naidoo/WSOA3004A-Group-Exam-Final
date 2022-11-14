@@ -8,12 +8,15 @@ public class Timer : MonoBehaviour
 {
     //Variables for timer
     float currentTime = 0f;
-    float startingTime = 15f;
+    float startingTime = 3f;
     public Text countdownText;
+
+    public GameObject portal;
 
     void Start()
     {
         currentTime = startingTime;
+        portal.gameObject.SetActive(false);
     }
     void Update()
     {
@@ -22,7 +25,9 @@ public class Timer : MonoBehaviour
         countdownText.text = currentTime.ToString("0");
         if(currentTime <= 0)
         {
-            SceneManager.LoadScene("Level1_1Retry");
+            portal.gameObject.SetActive(true);
+            countdownText.text = "ACTIVE";
+
         }
 
     }

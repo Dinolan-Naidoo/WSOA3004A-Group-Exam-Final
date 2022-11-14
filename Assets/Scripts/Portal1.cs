@@ -25,6 +25,11 @@ public class Portal1 : MonoBehaviour
             {
                 SceneManager.LoadScene("L2Interval");
             }
+            if (scene.name == "Level3")
+            {
+                SceneManager.LoadScene("YouWin3");
+            }
+
 
 
         }
