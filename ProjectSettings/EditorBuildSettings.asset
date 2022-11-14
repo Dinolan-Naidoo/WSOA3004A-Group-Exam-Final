@@ -47,4 +47,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level2_2.unity
     guid: cd9a73276952f52409d9e3b6c6a203b9
+  - enabled: 1
+    path: Assets/Scenes/Level2_2Retry.unity
+    guid: ff3464d09172b27489841e7a6c75ecf8
+  - enabled: 1
+    path: Assets/Scenes/YouWin2.unity
+    guid: 5b689d042f60db7418cc2ccc033f6ecf
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: da13e847a1d80134294beaf89d92f0e4
   m_configObjects: {}

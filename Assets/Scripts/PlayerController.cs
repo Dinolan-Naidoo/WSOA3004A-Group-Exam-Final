@@ -169,11 +169,16 @@ public class PlayerController : MonoBehaviour
                 {
                     SceneManager.LoadScene("Level2Retry");
                 }
-
-
-
-
+            if (scene.name == "Level2_2")
+            {
+                SceneManager.LoadScene("Level2_2Retry");
             }
+
+
+
+
+
+        }
        
 
       
@@ -187,9 +192,9 @@ public class PlayerController : MonoBehaviour
                 SceneManager.LoadScene("Level1_1Retry");
             }
 
-            if (scene.name == "Level2")
+            if (scene.name == "Level2_2")
             {
-                SceneManager.LoadScene("Level2Retry");
+                SceneManager.LoadScene("Level2_2Retry");
             }
 
         }
