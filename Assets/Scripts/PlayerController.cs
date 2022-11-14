@@ -45,7 +45,15 @@ public class PlayerController : MonoBehaviour
         if (coinCount == 3f)
         {
             Debug.Log("WIN");
-            SceneManager.LoadScene("YouWin");
+            if(scene.name == "SampleScene")
+            {
+                SceneManager.LoadScene("YouWin");
+            }
+            if (scene.name == "Level2_2")
+            {
+                SceneManager.LoadScene("YouWin2");
+            }
+
         }
         if (Input.GetMouseButton(0))
         {
@@ -127,7 +135,7 @@ public class PlayerController : MonoBehaviour
         {
             rB.constraints = RigidbodyConstraints2D.FreezeAll;
 
-            cam.orthographicSize = 30;
+            //cam.orthographicSize = 30;
             
 
         }
@@ -135,9 +143,9 @@ public class PlayerController : MonoBehaviour
         {
             //rB.constraints = RigidbodyConstraints2D.FreezeAll;
 
-            cam.orthographicSize = 19;
+            //cam.orthographicSize = 19;
 
-            transform.Rotate(0, 0, -90);
+            //transform.Rotate(0, 0, -90);
 
 
         }
@@ -174,8 +182,15 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Enemy")
         {
 
-            SceneManager.LoadScene("Level1_1Retry");
-            //Destroy(gameObject);
+            if (scene.name == "SampleScene")
+            {
+                SceneManager.LoadScene("Level1_1Retry");
+            }
+
+            if (scene.name == "Level2")
+            {
+                SceneManager.LoadScene("Level2Retry");
+            }
 
         }
 
