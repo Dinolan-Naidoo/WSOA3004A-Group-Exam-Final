@@ -25,7 +25,7 @@ public class Laser : MonoBehaviour
     private void Update()
     {
         ShootLaser();
-        transform.Rotate(0, 0, rotateSpeed);
+        transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
     }
 
     void ShootLaser()

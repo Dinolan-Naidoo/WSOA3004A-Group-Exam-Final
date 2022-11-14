@@ -184,7 +184,7 @@ public class PlayerController : MonoBehaviour
       
 
 
-        if (collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Laser")
         {
 
             if (scene.name == "SampleScene")

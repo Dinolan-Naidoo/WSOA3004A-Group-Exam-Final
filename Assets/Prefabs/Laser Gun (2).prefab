@@ -202,6 +202,7 @@ MonoBehaviour:
   firePoint: {fileID: 3577242108721754065}
   lineRenderer: {fileID: 3577242108149622490}
   player: {fileID: 0}
+  rotateSpeed: 0
 --- !u!1 &3577242108721754094
 GameObject:
   m_ObjectHideFlags: 0
