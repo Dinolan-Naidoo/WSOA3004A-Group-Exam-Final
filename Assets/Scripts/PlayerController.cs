@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private Scene scene;
 
+    public AudioSource backgroundMusic;
+
     private void Awake()
     {
         mousePointA = GameObject.FindGameObjectWithTag("PointA");  //Finds point A
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour
         timerSlider.value = 1f;                                    //Sets the timer slider to its max value
 
         scene = SceneManager.GetActiveScene();
+        backgroundMusic.Play();
     }
 
 
