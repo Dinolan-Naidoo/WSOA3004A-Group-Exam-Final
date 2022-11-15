@@ -11,9 +11,12 @@ public class Timer : MonoBehaviour
     float startingTime = 15f;
     public Text countdownText;
 
+    public GameObject portal;
+
     void Start()
     {
         currentTime = startingTime;
+        portal.gameObject.SetActive(false);
     }
     void Update()
     {
@@ -22,7 +25,9 @@ public class Timer : MonoBehaviour
         countdownText.text = currentTime.ToString("0");
         if(currentTime <= 0)
         {
-            SceneManager.LoadScene("GameOver");
+            portal.gameObject.SetActive(true);
+            countdownText.text = "ACTIVE";
+
         }
 
     }
