@@ -951,6 +951,7 @@ MonoBehaviour:
   textSpeed: 0.02
   itemInfoText: {fileID: 1636558787}
   nextButton: {fileID: 760408201}
+  nextScene: Level1
 --- !u!4 &1363652562
 Transform:
   m_ObjectHideFlags: 0

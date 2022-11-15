@@ -14,6 +14,7 @@ public class textScroll : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] private TextMeshProUGUI itemInfoText;
     [SerializeField] private Button nextButton;
+    [SerializeField] private string nextScene;
 
     private int currentDisplayText = 0;
     private bool canGoNext = true;
@@ -30,7 +31,7 @@ public class textScroll : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("Level1");
+                SceneManager.LoadScene(nextScene); //"Level1"
             }
         }
        
