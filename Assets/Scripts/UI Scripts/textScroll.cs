@@ -15,9 +15,15 @@ public class textScroll : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemInfoText;
     [SerializeField] private Button nextButton;
     [SerializeField] private string nextScene;
+    [SerializeField] private GameObject claveDisplay;
 
     private int currentDisplayText = 0;
     private bool canGoNext = true;
+
+    private void Start()
+    {
+        ActivateText();
+    }
 
     public void ActivateText()
     {
@@ -28,6 +34,11 @@ public class textScroll : MonoBehaviour
                 canGoNext = false;
                 nextButton.interactable = false;
                 StartCoroutine(AnimateText());
+
+                if (currentDisplayText == itemInfo.Length-1)
+                {
+                    claveDisplay.SetActive(true);
+                }
             }
             else
             {
