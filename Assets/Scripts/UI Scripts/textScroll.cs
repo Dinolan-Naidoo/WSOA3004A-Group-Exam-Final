@@ -49,4 +49,9 @@ public class textScroll : MonoBehaviour
         canGoNext = true;
         nextButton.interactable = true;
     }
+
+    public void Skip()
+    {
+        SceneManager.LoadScene("Level1");
+    }
 }
