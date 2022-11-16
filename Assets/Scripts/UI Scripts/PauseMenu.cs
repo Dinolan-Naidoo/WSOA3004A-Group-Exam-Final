@@ -41,6 +41,7 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
+            //Debug.Log("clicked");
             pausePanel.SetActive(true);
             paused = true;
             playerController.PausePlayer(true);
