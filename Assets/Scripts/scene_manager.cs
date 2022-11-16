@@ -55,5 +55,10 @@ public class scene_manager : MonoBehaviour
         SceneManager.LoadScene("Tutorial");
     }
 
+    public void IntroScene()
+    {
+        SceneManager.LoadScene("IntroScene");
+    }
+
 
 }

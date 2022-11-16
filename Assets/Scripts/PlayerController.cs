@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         timerSlider.value = 1f;                                    //Sets the timer slider to its max value
 
         scene = SceneManager.GetActiveScene();
-        backgroundMusic.Play();
+        //backgroundMusic.Play();
     }
 
 
