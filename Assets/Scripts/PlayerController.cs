@@ -24,6 +24,12 @@ public class PlayerController : MonoBehaviour
     private float coinCount = 0;
     public Camera cam;
 
+    private Scene scene;
+
+    public AudioSource backgroundMusic;
+
+    private bool notPaused = true;
+
     private void Awake()
     {
         mousePointA = GameObject.FindGameObjectWithTag("PointA");  //Finds point A
@@ -33,6 +39,9 @@ public class PlayerController : MonoBehaviour
         rB = GetComponent<Rigidbody2D>();                          //Gets the player rigidbody
         timerSlider.gameObject.SetActive(false);                   //Disables the timer slider for slow motion time
         timerSlider.value = 1f;                                    //Sets the timer slider to its max value
+
+        scene = SceneManager.GetActiveScene();
+        backgroundMusic.Play();
     }
 
 
@@ -41,8 +50,17 @@ public class PlayerController : MonoBehaviour
         if (coinCount == 3f)
         {
             Debug.Log("WIN");
-            SceneManager.LoadScene("YouWin");
+            if(scene.name == "SampleScene")
+            {
+                SceneManager.LoadScene("YouWin");
+            }
+            if (scene.name == "Level2_2")
+            {
+                SceneManager.LoadScene("YouWin2");
+            }
+
         }
+
         if (Input.GetMouseButton(0))
         {
             rB.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -90,14 +108,18 @@ public class PlayerController : MonoBehaviour
             //Handles the player movement when the left click is released
             if (Input.GetMouseButtonUp(0))
             {
-                Time.timeScale = 1;
-                Vector3 push = shootDirection * shootpower * -1f;
-                rB.velocity = push;
-                mousePointB.SetActive(false);
-                //countdownT.gameObject.SetActive(false);
-                count = 5f;
-                timerSlider.value = 1f;
-                timerSlider.gameObject.SetActive(false);
+                if (notPaused)
+                {
+                    Time.timeScale = 1;
+                    Vector3 push = shootDirection * shootpower * -1f;
+                    rB.velocity = push;
+                    mousePointB.SetActive(false);
+                    //countdownT.gameObject.SetActive(false);
+                    count = 5f;
+                    timerSlider.value = 1f;
+                    timerSlider.gameObject.SetActive(false);
+
+                }
             }
 
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -123,7 +145,7 @@ public class PlayerController : MonoBehaviour
         {
             rB.constraints = RigidbodyConstraints2D.FreezeAll;
 
-            cam.orthographicSize = 30;
+            //cam.orthographicSize = 30;
             
 
         }
@@ -131,9 +153,9 @@ public class PlayerController : MonoBehaviour
         {
             //rB.constraints = RigidbodyConstraints2D.FreezeAll;
 
-            cam.orthographicSize = 19;
+            //cam.orthographicSize = 19;
 
-            transform.Rotate(0, 0, -90);
+            //transform.Rotate(0, 0, -90);
 
 
         }
@@ -143,23 +165,76 @@ public class PlayerController : MonoBehaviour
     //The following function checks for a collision with an enemy or enemy bullet and destroys the player
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Obstacle" )
+
+    
+            if (collision.gameObject.tag == "Obstacle")
+            {
+
+                if(scene.name =="Level1")
+                {
+                   SceneManager.LoadScene("Level1Retry");
+                }
+
+                if (scene.name == "Level2")
+                {
+                    SceneManager.LoadScene("Level2Retry");
+                }
+                if (scene.name == "Level2_2")
+                {
+                    SceneManager.LoadScene("Level2_2Retry");
+                }
+
+                if (scene.name == "Level3")
+                {
+                    SceneManager.LoadScene("Level3_Retry");
+                }
+
+
+             }
+       
+
+      
+
+
+        if (collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Laser")
         {
-            
-            SceneManager.LoadScene("Level1Retry");
-            //Destroy(gameObject);
+
+            if (scene.name == "SampleScene")
+            {
+                SceneManager.LoadScene("Level1_1Retry");
+            }
+
+            if (scene.name == "Level2_2")
+            {
+                SceneManager.LoadScene("Level2_2Retry");
+            }
+
+            if (scene.name == "Level3")
+            {
+                SceneManager.LoadScene("Level3_Retry");
+            }
 
         }
 
-        if (collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Enemy")
+    }
+
+    public void PausePlayer(bool pause)
+    {
+        //Vector3 pauseShootDirection = shootDirection;
+
+        if (pause)
         {
-
-            SceneManager.LoadScene("Level1_1Retry");
-            //Destroy(gameObject);
-
+            notPaused = false;
+            Time.timeScale = 0f;
+            //shootpower = 0f;
+            //pauseShootDirection = shootDirection;
         }
-
-
-
+        else
+        {
+            notPaused = true;
+            Time.timeScale = 1f;
+            shootpower = 0f;
+            //shootDirection = pauseShootDirection;
+        }
     }
 }

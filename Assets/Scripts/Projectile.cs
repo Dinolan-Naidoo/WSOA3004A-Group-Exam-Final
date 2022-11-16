@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Projectile : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Projectile : MonoBehaviour
     public Vector2 target;
     public GameObject impactEffect;
 
+    private Scene scene;
 
     private void Start()
     {
@@ -18,6 +20,8 @@ public class Projectile : MonoBehaviour
 
         //Sets a target position to the player's position
         target = new Vector2(player.position.x , player.position.y);
+
+        scene = SceneManager.GetActiveScene();
 
     }
 
@@ -36,7 +40,8 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
+           
+            //Destroy(gameObject);
         }
         else if(collision.gameObject.tag == "Bullet")
         {
@@ -45,6 +50,12 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
         else if (collision.gameObject.tag == "Wall")
+        {
+            // Instantiate(impactEffect, transform.position, Quaternion.identity);
+
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.tag == "Obstacle")
         {
             // Instantiate(impactEffect, transform.position, Quaternion.identity);
 

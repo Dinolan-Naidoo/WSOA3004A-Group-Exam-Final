@@ -12,15 +12,20 @@ public class Laser : MonoBehaviour
 
     Transform transform;
     public GameObject player;
+    public float rotateSpeed;
+
+    private Scene scene;
 
     private void Awake()
     {
         transform = GetComponent<Transform>();
+        scene = SceneManager.GetActiveScene();
     }
 
     private void Update()
     {
         ShootLaser();
+        transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
     }
 
     void ShootLaser()
@@ -32,12 +37,37 @@ public class Laser : MonoBehaviour
             if (_hit.collider != null)
             {
                 
-               // Debug.Log(_hit.collider.name);
-                if(_hit.collider.gameObject.tag == "Player")
+                if(scene.name == "Level1")
                 {
-                    //Destroy(player);
-                    SceneManager.LoadScene("Level1Retry");
+                    if (_hit.collider.gameObject.tag == "Player")
+                    {
+                        //Destroy(player);
+
+                        SceneManager.LoadScene("Level1Retry");
+                    }
                 }
+
+                if (scene.name == "Level2")
+                {
+                    if (_hit.collider.gameObject.tag == "Player")
+                    {
+                        //Destroy(player);
+
+                        SceneManager.LoadScene("Level2Retry");
+                    }
+                }
+
+                if (scene.name == "Level3")
+                {
+                    if (_hit.collider.gameObject.tag == "Player")
+                    {
+                        //Destroy(player);
+
+                        SceneManager.LoadScene("Level3_Retry");
+                    }
+                }
+                // Debug.Log(_hit.collider.name);
+
             }
         }
         else

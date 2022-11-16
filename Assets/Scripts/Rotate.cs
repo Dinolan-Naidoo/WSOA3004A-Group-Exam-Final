@@ -15,7 +15,7 @@ public class Rotate : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(0, 0, rotateSpeed);
+        transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
 
         if (transform.position.x >= pos1.position.x)
         {
