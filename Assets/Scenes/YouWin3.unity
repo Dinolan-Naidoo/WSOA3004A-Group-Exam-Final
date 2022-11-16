@@ -703,7 +703,7 @@ MonoBehaviour:
   textSpeed: 0.02
   itemInfoText: {fileID: 901373695}
   nextButton: {fileID: 1500411530}
-  nextScene: SampleScene
+  nextScene: MainMenu
   claveDisplay: {fileID: 1217209059}
 --- !u!4 &284311323
 Transform:
@@ -1599,7 +1599,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: -34}
+  m_AnchoredPosition: {x: 254, y: -132}
   m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1500411530
@@ -1678,7 +1678,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7af5d3da987e3514faf0c949d648d1e4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: be551921e0b1edd40b4d6d6c5ce7553e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1813,7 +1813,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14, y: -123.69865}
+  m_AnchoredPosition: {x: -318, y: -139}
   m_SizeDelta: {x: 60, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1573311225
@@ -1892,7 +1892,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 47c1ee1ec574c124ab6ed3ab9a34278e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ecbf1a5750f2dae49ab88f6f861fc29c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

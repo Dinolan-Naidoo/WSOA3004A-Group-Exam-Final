@@ -295,8 +295,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: -34}
-  m_SizeDelta: {x: 150, y: 50}
+  m_AnchoredPosition: {x: 269, y: -161}
+  m_SizeDelta: {x: 100.1619, y: 37.5405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &263047010
 MonoBehaviour:
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.73333335, g: 0.5647059, b: 0.9254902, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -342,9 +342,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1517110594}
-        m_TargetAssemblyTypeName: scene_manager, Assembly-CSharp
-        m_MethodName: PlayLevel3
+      - m_Target: {fileID: 1500709124}
+        m_TargetAssemblyTypeName: textScroll, Assembly-CSharp
+        m_MethodName: ActivateText
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7af5d3da987e3514faf0c949d648d1e4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: be551921e0b1edd40b4d6d6c5ce7553e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1433,10 +1433,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemInfo:
   - _With impressive maneovring you succeed to the FINAL layer of the Diagalxia
+  - _Survive for 15 seconds without getting shot and a portal will appear to your
+    rescue
   textSpeed: 0.02
   itemInfoText: {fileID: 441129842}
-  nextButton: {fileID: 500089740}
-  nextScene: SampleScene
+  nextButton: {fileID: 263047010}
+  nextScene: Level3
   claveDisplay: {fileID: 2147437413}
 --- !u!4 &1500709125
 Transform:
@@ -1618,7 +1620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1514010423
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1716,7 +1718,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 47c1ee1ec574c124ab6ed3ab9a34278e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ecbf1a5750f2dae49ab88f6f861fc29c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
