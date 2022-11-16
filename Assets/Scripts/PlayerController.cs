@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource backgroundMusic;
 
+    private bool notPaused = true;
+
     private void Awake()
     {
         mousePointA = GameObject.FindGameObjectWithTag("PointA");  //Finds point A
@@ -58,6 +60,7 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+
         if (Input.GetMouseButton(0))
         {
             rB.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -105,14 +108,18 @@ public class PlayerController : MonoBehaviour
             //Handles the player movement when the left click is released
             if (Input.GetMouseButtonUp(0))
             {
-                Time.timeScale = 1;
-                Vector3 push = shootDirection * shootpower * -1f;
-                rB.velocity = push;
-                mousePointB.SetActive(false);
-                //countdownT.gameObject.SetActive(false);
-                count = 5f;
-                timerSlider.value = 1f;
-                timerSlider.gameObject.SetActive(false);
+                if (notPaused)
+                {
+                    Time.timeScale = 1;
+                    Vector3 push = shootDirection * shootpower * -1f;
+                    rB.velocity = push;
+                    mousePointB.SetActive(false);
+                    //countdownT.gameObject.SetActive(false);
+                    count = 5f;
+                    timerSlider.value = 1f;
+                    timerSlider.gameObject.SetActive(false);
+
+                }
             }
 
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -209,5 +216,25 @@ public class PlayerController : MonoBehaviour
 
         }
 
+    }
+
+    public void PausePlayer(bool pause)
+    {
+        //Vector3 pauseShootDirection = shootDirection;
+
+        if (pause)
+        {
+            notPaused = false;
+            Time.timeScale = 0f;
+            //shootpower = 0f;
+            //pauseShootDirection = shootDirection;
+        }
+        else
+        {
+            notPaused = true;
+            Time.timeScale = 1f;
+            shootpower = 0f;
+            //shootDirection = pauseShootDirection;
+        }
     }
 }
