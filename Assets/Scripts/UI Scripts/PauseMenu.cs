@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -24,11 +25,14 @@ public class PauseMenu : MonoBehaviour
         pauseButton.image.sprite = pauseSprite;
     }
 
-   /* // Update is called once per frame
+    // Update is called once per frame
     void Update()
     {
-        
-    }*/
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Pause(); 
+        }
+    }
 
     public void Pause()
     {
@@ -48,5 +52,21 @@ public class PauseMenu : MonoBehaviour
             currentLayerText.text = "Current Layer: " + currentLayer;
             pauseButton.image.sprite = pausedSprite;
         }
+    }
+
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }
